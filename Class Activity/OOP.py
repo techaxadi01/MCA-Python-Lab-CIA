@@ -143,66 +143,116 @@ class Patient3:
 Patient3.hospital_tamings()
 
 
-# Inheritence 
-
-# 1. Single Inheritance - one child class inherits from one parent class
-
-class P_Pataiient1:
-     def show_paitent (self):
-          print("Patient ID: P001")
-          print("Name: Adi")
-
-class C_Pataiient1(P_Pataiient1):
-     def show_room(self):
-          print("Room No : 203")
 
 
-patient = C_Pataiient1()
-patient.show_paitent()
+# Inheritance
+
+
+# 1. Single Inheritance
+# One child class inherits from one parent class
+
+class P_Patient1:
+    def show_patient(self):
+        print("Patient ID: P001")
+        print("Name: Adi")
+
+class C_Patient1(P_Patient1):
+    def show_room(self):
+        print("Room No: 203")
+
+patient = C_Patient1()
+patient.show_patient()
 patient.show_room()
 
 
-# 2. Multiple Inheritance - one child class inherits from more than one parent class
+# 2. Multiple Inheritance
+# One child class inherits from more than one parent class
 
-class P1_Pataiient2:
-     def show_paitent (self):
-          print("Patient ID: P001")
-          print("Name: Adi")
+class P1_Patient2:
+    def show_patient(self):
+        print("Patient ID: P002")
 
-class P2_Pataiient2:
-     def billing (self):
-          print("Colustant Fee: Rs 500")
+class P2_Patient2:
+    def billing(self):
+        print("Consultant Fee: Rs 500")
 
-class C_Pataiient2(P1_Pataiient2,P2_Pataiient2):
-     def show_room(self):
-          print("Room No : 203")
+class C_Patient2(P1_Patient2, P2_Patient2):
+    def show_room(self):
+        print("Room No: 204")
 
-
-patient = C_Pataiient2()
-patient.show_paitent()
+patient = C_Patient2()
+patient.show_patient()
 patient.billing()
 patient.show_room()
 
 
-# 2. Hierarchical  Inheritance - one child class inherits from  one parent class and this parent inherits from other parent
+# 3. Multilevel Inheritance
+# A child class inherits from another child class
 
-class P1_Pataiient3:
-     def show_paitent (self):
-          print("Patient ID: P001")
-          print("Name: Adi")
+class P_Patient3:
+    def show_patient(self):
+        print("Patient ID: P003")
 
-class P2_Pataiient3(P1_Pataiient3):
-     def billing (self):
-          print("Colustant Fee: Rs 500")
+class C1_Patient3(P_Patient3):
+    def billing(self):
+        print("Consultant Fee: Rs 500")
 
-class C_Pataiient3(P2_Pataiient3):
-     def show_room(self):
-          print("Room No : 203")
+class C2_Patient3(C1_Patient3):
+    def show_room(self):
+        print("Room No: 205")
 
-
-patient = C_Pataiient3()
-patient.show_paitent()
+patient = C2_Patient3()
+patient.show_patient()
 patient.billing()
 patient.show_room()
 
+
+# 4. Hierarchical Inheritance
+# More than one child class inherits from one parent class
+
+class P_Patient4:
+    def show_patient(self):
+        print("Patient ID: P004")
+
+class C1_Patient4(P_Patient4):
+    def show_room(self):
+        print("Room No: 206")
+
+class C2_Patient4(P_Patient4):
+    def billing(self):
+        print("Consultant Fee: Rs 500")
+
+patient1 = C1_Patient4()
+patient1.show_patient()
+patient1.show_room()
+
+patient2 = C2_Patient4()
+patient2.show_patient()
+patient2.billing()
+
+
+# 5. Hybrid Inheritance
+# Combination of two or more types of inheritance
+
+class P_Patient5:
+    def show_patient(self):
+        print("Patient ID: P005")
+
+class C1_Patient5(P_Patient5):
+    def show_room(self):
+        print("Room No: 207")
+
+class C2_Patient5(P_Patient5):
+    def billing(self):
+        print("Consultant Fee: Rs 500")
+
+class C3_Patient5(C1_Patient5, C2_Patient5):
+    def show_doctor(self):
+        print("Doctor: Dr. Ravi")
+
+patient = C3_Patient5()
+patient.show_patient()
+patient.show_room()
+patient.billing()
+patient.show_doctor()
 
